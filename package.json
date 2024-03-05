@@ -1,0 +1,20 @@
+{
+  "name": "wd301",
+  "version": "1.0.0",
+  "description": "**Wd301 repository for WD pupilfirst**",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "lint-staged": "^15.2.2"
+  },
+  "dependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
