@@ -16,7 +16,7 @@ function App() {
           <h1 className="text-2xl text-center font-bold text-red-500">Pending</h1>
           <TaskCard title="Build the website with static content" dueDate="22-02-2024" assigneeName="Manager"/>
           <TaskCard title="Add Blog" dueDate="22-03-2024" assigneeName="Manager"/>
-          <p className="bg-gray-400 font-bold">+ New Task</p>
+          <p className="bg-gray-400 font-bold text-left">+ New Task</p>
         </div>
       
         <div className="mr-8 border-2 border-slate-800 rounded-lg px-4 py-4 w-1/2">
