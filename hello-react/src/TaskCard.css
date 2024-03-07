@@ -1,0 +1,18 @@
+/* .TaskItem{
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+} */
+.Pending{
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+}
+.Done{
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+}
