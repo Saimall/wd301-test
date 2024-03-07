@@ -9,25 +9,46 @@
   font-family: Calibri;
   color: rgb(54, 34 , 4);
   font-weight:bolder;
+  font-size:xx-large;
   margin: 0 auto;
   text-align: left;
-  padding: 1.5rem;
 }
 
 .Subtitle{
   font-family: Calibri;
-  color: rgb(54, 34 , 4);
+  color: red;
+  font-size: large;
   font-weight:bold;
-  margin: 0 auto;
   text-align: left;
 }
 
 .Sub{
+  color: lightslategray;
   font-family: Calibri;
   font-weight: light;
   text-align: left;
-  padding: 0.5rem;
+  font-size: large;
 }
+
+.side{
+  display: flex;
+  width: 80%;
+}
+
+.child1{
+  flex: 1;
+  border-radius: 50px;
+  border: 2px solid grey;
+  margin: 10px;
+}
+
+.child2{
+  border-radius: 50px;
+  border: 2px solid grey;
+  margin: 10px;
+  margin-right: 10px;
+}
+
 
 .logo {
   height: 6em;
