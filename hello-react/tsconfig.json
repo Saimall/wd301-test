@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": "iKnowWhatImDoing",
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"]

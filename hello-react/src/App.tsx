@@ -1,16 +1,14 @@
-import { useState } from 'react'
+import React from 'react';
 import TaskCard from './TaskCard';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css';
 
 function App() {
   return(
-    <html>
+    <div className='flex flex-col mx-64 justify-between w-100'>
       <h1 className="Title">Smarter Tasks</h1>
       <p className="Sub"><strong className='Subtitle'>Project:</strong> Final Year Project(Revamp College Website)</p>
       <br/>
-      <div className='side'>
+      <div className='flex justify-center'>
 
         <div className="mr-8 border-2 border-slate-800 rounded-lg px-4 py-4 w-1/2">
           <h1 className="text-2xl text-center font-bold text-red-500">Pending</h1>
@@ -26,7 +24,7 @@ function App() {
         </div>
       </div>
 
-    </html>
+    </div>
   );
 }
 
