@@ -43,6 +43,7 @@
 }
 
 .child2{
+  flex: auto;
   border-radius: 50px;
   border: 2px solid grey;
   margin: 10px;
