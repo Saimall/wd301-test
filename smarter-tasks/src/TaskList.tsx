@@ -2,11 +2,12 @@ import React from "react";
 import Task from "./Task";
 import { TaskItem } from "./types";
 
-interface Props {
-  tasks: TaskItem[];
-}
 interface TaskItem {
   title: string;
+} 
+
+interface Props {
+  tasks: TaskItem[];
 }
 interface State {}
 class TaskList extends React.Component<Props, State> {
