@@ -2,4 +2,4 @@ interface TaskItem {
     title: string;
 }
 
-export module TaskItem
+export default TaskItem;

@@ -1,10 +1,6 @@
 import React from "react";
 import Task from "./Task";
-import { TaskItem } from "./types";
-
-interface TaskItem {
-  title: string;
-} 
+import  TaskItem  from "./types";
 
 interface Props {
   tasks: TaskItem[];
