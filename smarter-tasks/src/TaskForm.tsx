@@ -13,16 +13,19 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
       title: ""
     }
   }
-  inputRef = React.createRef<HTMLInputElement>();
+  titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    console.log(`${event.target.value}`);
+    this.setState({ title: event.target.value });
+  };
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log(`Submitted the form with ${this.inputRef.current?.value}`);
+    console.log(`Submitted the form with ${this.state.title}`);
   };
   render(){
     return (
       <form onSubmit={this.addTask}>
-        <input className="border-2 border-slate-500 rounded-lg w-1/6" type="text" ref={this.inputRef} />
-        <button className="border-4 border-purple-700 rounded-lg mx-auto w-1/5" type="submit">Add item</button>
+        <input type="text" value={this.state.title} onChange={this.titleChanged}/>
+        <button type="submit">Add item</button>
       </form>
     )
   }
