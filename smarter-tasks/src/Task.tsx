@@ -1,11 +1,23 @@
 import React from "react";
+import "./TaskCard.css";
+
 interface TaskProp{
-    title: string,
+  title: string,
 }
 class Task extends React.Component<TaskProp>{
-    render(){
-        return <div className="text-3xl bg-blue-400 mx-auto w-64">{this.props.title}</div>
-    }
+  render() {
+    return (
+      <div className="TaskItem shadow-md border border-slate-100">
+        <h2 className="text-base font-bold my-1">{this.props.title}</h2>
+        <p className="text-sm text-slate-500">
+          Due Date:
+        </p>
+        <p className="text-sm text-slate-500">
+          Description: 
+        </p>
+      </div>
+    );
+  }
 }
 
 export default Task
