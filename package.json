@@ -4,6 +4,7 @@
   "description": "**Wd301 repository for WD pupilfirst**",
   "main": "index.js",
   "scripts": {
+    "build": "cd smarter-tasks && tsc && vite build",
     "test": "npm test"
   },
   "author": "",
