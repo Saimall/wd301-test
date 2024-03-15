@@ -4,7 +4,6 @@
   "description": "**Wd301 repository for WD pupilfirst**",
   "main": "index.js",
   "scripts": {
-    "build": "cd smarter-tasks && npm run build",
     "test": "npm test"
   },
   "author": "",
@@ -15,7 +14,8 @@
     "eslint-plugin-react": "^7.34.0",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.2"
   },
   "dependencies": {
     "jest": "^29.7.0",
