@@ -3,19 +3,13 @@ import "./TaskCard.css";
 
 interface TaskProp {
   title: string,
-  description?: string,
+  description: string,
   dueDate: string
 }
-interface TaskAppState {
-}
-class Task extends React.Component<TaskProp, TaskAppState>{
+
+class Task extends React.Component<TaskProp>{
   constructor(props: TaskProp) {
     super(props);
-    this.state = {
-      title: "",
-      description: "",
-      dueDate: "",
-    }
   }
   render() {
     return (
