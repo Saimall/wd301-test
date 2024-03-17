@@ -26,7 +26,7 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
 
   render() {
     return (
-      <div className="container py-10 max-w-4xl mx-auto">
+      <div className="container py-10 max-w-7xl mx-auto text-center">
         <h1 className="text-3xl mb-2 font-bold text-slate-700">
           Smarter Tasks
         </h1>
