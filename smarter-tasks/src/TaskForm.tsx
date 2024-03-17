@@ -6,7 +6,6 @@ interface TaskFormProps {
   addTask: (task: TaskItem) => void;
 }
 interface TaskFormState {
-  tasks: TaskItem[];
   title: string;
   description: string;
   dueDate: string;
@@ -28,7 +27,6 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   constructor(props: TaskFormProps) {
     super(props);
     this.state = {
-      tasks: [],
       title: "",
       description: "",
       dueDate: ""
