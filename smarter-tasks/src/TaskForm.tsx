@@ -46,7 +46,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   render() {
     return (
       <form onSubmit={this.addTask}>
-        <div className="TaskItem flexbox w-64">
+        <div className="flexbox w-64">
           <label className="flex font-bold" form="todoTitle" >Title</label>
           <input id="todoTitle" className="flex border-2 border-slate-500 rounded-lg w-1/10" type="text" value={this.state.title} onChange={this.titleChanged} required />
 
