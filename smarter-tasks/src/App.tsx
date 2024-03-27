@@ -1,21 +1,28 @@
-import Homepage from "./pages/HomePage";
-import TaskListPage from './pages/TaskListPage';
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import HomePage from './pages/HomePage';
+import TaskListPage from './pages/TaskListPage';
+import Layout from "./Layout";
 
-const router = createBrowserRouter({
+const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Homepage/>
-  },
-  {
-    path: "/tasks",
-    element: <TaskListPage/>
-  },
-});
+    element: (
+      <Layout />
+    ),
+    children: [
+      {
+        path: "/",
+        element: (<HomePage />)
+      },
+      {
+        path: "tasks",
+        element: (<TaskListPage />)
+      }
+    ]
+  }
+]);
 
 const App = () => {
   return (
