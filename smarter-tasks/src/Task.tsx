@@ -1,7 +1,7 @@
 import "./TaskCard.css";
 import { TaskItem } from "./types";
 
-interface TaskProps {
+interface TaskProps extends TaskItem{
   item: TaskItem;
   removeTask: (task: TaskItem) => void;
 }
