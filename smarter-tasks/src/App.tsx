@@ -4,8 +4,8 @@ import Layout from "./Layout";
 import HomePage from "./pages/HomePage";
 import TaskListPage from "./pages/TaskListPage";
 import TaskDetailsPage from "./pages/TaskDetailsPage";
-import ProtectedRoute from "./ProtectedRoutes";
-import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "./pages/Notfound";
 
 const router = createBrowserRouter([
   {
