@@ -17,8 +17,8 @@ const TaskApp = () => {
   };
 
   const deleteTask = (index: string) => {
-    const updatedTasks = [...taskAppState.tasks];
-    updatedTasks.splice(Number(index), 1);
+    let updatedTasks = [...taskAppState.tasks];
+    updatedTasks = updatedTasks.filter((item) => item.id != index);
     setTaskAppState({ tasks: updatedTasks });
   };
 
@@ -48,7 +48,7 @@ const TaskApp = () => {
             Pending
           </h1>
           <TaskForm addTask={addTask} />
-          <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask} />
+          <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask}/>
         </div>
       </div>
     </div>
