@@ -21,10 +21,6 @@ const router = createBrowserRouter([
     element: <NotFound />
   },
   {
-    path: "*",
-    element: <NotFound />
-  },
-  {
     element: (
       <ProtectedRoute>
         <Layout />
@@ -43,8 +39,16 @@ const router = createBrowserRouter([
         path: "tasks/:id",
         element: <TaskDetailsPage />,
       },
+      {
+        path: "*",
+        element: <NotFound />
+      },
     ],
   },
+  {
+    path: "*",
+    element: <NotFound />
+  }
 ]);
 
 const App = () => {
