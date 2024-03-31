@@ -14,9 +14,10 @@ const TaskList = (props: Props) => {
     <li key={idx}>
       <Task
         key={idx}
-        title={task.title}
-        description={task.description}
-        dueDate={task.dueDate}
+        id={task.id}
+        todoTitle={task.todoTitle}
+        todoDescription={task.todoDescription}
+        tododueDate={task.tododueDate}
         deleteTask={() => handle(idx)}
       />
       <button onClick={() => handle(idx)} className="deleteTaskButton bg-red-500 mx-auto rounded-lg hover:bg-red-800">

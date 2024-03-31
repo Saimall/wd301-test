@@ -6,6 +6,7 @@ interface TaskFormProps {
   addTask: (task: TaskItem) => void;
 }
 interface TaskFormState {
+  id: number;
   title: string;
   description: string;
   dueDate: string;
@@ -13,7 +14,24 @@ interface TaskFormState {
 
 const TaskForm = (props: TaskFormProps) => {
 
+  function generateUId() {
+
+    function hashCode(s : string) {
+      return s.split('').reduce(function(a, b) {
+          a = ((a << 5) - a) + b.charCodeAt(0);
+          return a & a;
+      }, 0);
+    }
+
+    const randomString = Math.random().toString(30).substring(2);
+
+    const uniqueId = hashCode(randomString);
+  
+    return uniqueId;
+  };
+
   const [formState, setFormState] = React.useState<TaskFormState>({
+    id : generateUId(),
     title: "",
     description: "",
     dueDate: "",
@@ -40,8 +58,16 @@ const TaskForm = (props: TaskFormProps) => {
     if (formState.title.length === 0 && formState.dueDate === null) {
       return;
     }
-    props.addTask(formState);
-    setFormState({ title: "", dueDate: "", description: "" });
+
+    const taskInstance : TaskItem = {
+      id: generateUId(),
+      todoTitle: formState.title,
+      tododueDate: formState.dueDate,
+      todoDescription: formState.description
+    } 
+
+    props.addTask(taskInstance);
+    setFormState({ id: 0, title: "", dueDate: "", description: "" });
   };
   return (
     <form onSubmit={addTask}>
