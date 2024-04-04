@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
 import { useNavigate } from 'react-router-dom';
 
+console.log('API_ENDPOINT:', API_ENDPOINT);
+
 const SignupForm: React.FC = () => {
     const [organisationName, setOrganisationName] = useState('');
     const [userName, setUserName] = useState('');
