@@ -11,7 +11,7 @@ function Signin() {
     e.preventDefault();
     if (username === "admin" && password === "admin") {
       localStorage.setItem("authenticated", "true");
-      navigate("/home");
+      navigate("/dashboard");
     } else {
       alert("Invalid username or password");
     }
