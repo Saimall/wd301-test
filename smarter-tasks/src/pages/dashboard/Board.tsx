@@ -1,16 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react"
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const Board: React.FC = () => {
     
-    const [storedData, setStoredData] = useLocalStorage('userData','');
-    const [storedToken, setStoredToken] = useLocalStorage('authToken','');
-    
     //Fetch user data
-    const data = storedData;
-    console.log(storedToken);
+    const data = localStorage.getItem("userData");
     const navigate = useNavigate();
 
     if (data === 'undefined' || data === null) {
@@ -42,8 +37,6 @@ const Board: React.FC = () => {
             localStorage.removeItem('userData');
             localStorage.removeItem('authToken');
 
-            setStoredData('');
-            setStoredToken('');
             navigate("./signin");
         }
         catch (err) {
