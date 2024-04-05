@@ -33,8 +33,7 @@ const Board: React.FC = () => {
     //Handle logout
     const handleLogout = () => {
         try {
-            localStorage.removeItem("userData");
-            localStorage.removeItem("authToken");
+            localStorage.clear();
             navigate("./signin");
         }
         catch (err) {
