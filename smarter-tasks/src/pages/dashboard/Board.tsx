@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react"
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const Board: React.FC = () => {
-
+    
+    const [storedData, setStoredData] = useLocalStorage('userData','');
+    const [storedToken, setStoredToken] = useLocalStorage('authToken','');
+    
     //Fetch user data
-    const data = localStorage.getItem("userData");
+    const data = storedData;
+    console.log(storedToken);
     const navigate = useNavigate();
 
     if (data === 'undefined' || data === null) {
@@ -33,7 +39,11 @@ const Board: React.FC = () => {
     //Handle logout
     const handleLogout = () => {
         try {
-            localStorage.clear();
+            localStorage.removeItem('userData');
+            localStorage.removeItem('authToken');
+
+            setStoredData('');
+            setStoredToken('');
             navigate("./signin");
         }
         catch (err) {
