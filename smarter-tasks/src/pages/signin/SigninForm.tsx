@@ -52,7 +52,7 @@ const SigninForm: React.FC = () => {
           htmlFor="email"
           className="block text-gray-700 font-semibold mb-2"
         >
-          email
+          Email
         </label>
         <input
           type="email"
