@@ -58,7 +58,7 @@ const Board: React.FC = () => {
                 </div>
 
                 <button className="text-white bg-red-300 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-white-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <a href="/signin" onClick={() => handleLogout} id="logout-link">Logout</a>
+                    <a href="/signin" onClick={handleLogout} id="logout-link">Logout</a>
                 </button>
             </div>
         </div>
