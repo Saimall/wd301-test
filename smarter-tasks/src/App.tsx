@@ -1,11 +1,15 @@
-import { RouterProvider} from "react-router-dom";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import Signup from "./pages/signup";
 // import Signin from "./pages/signin";
 // import HomePage from "./pages/HomePage";
 // import ProtectedRoute from "./ProtectedRoute";
 // import NotFound from "./pages/Notfound";
 // import Dashboard from "./pages/dashboard";
-import router from "./routes";
+import { useContext } from "react";
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import router from "./routes"
+import {ThemeContext} from "./context/theme";
 
 // const router = createBrowserRouter([
 //   {
@@ -47,8 +51,10 @@ import router from "./routes";
 
 
 const App = () => {
+  const { theme } = useContext(ThemeContext)
   return (
-    <div>
+    <div className={`h-screen w-full mx-auto py-2 ${theme === "dark" ? "dark" : ""}`}>
+      {theme}
       <RouterProvider router={router} />
     </div>
   );
