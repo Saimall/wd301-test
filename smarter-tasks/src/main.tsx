@@ -1,16 +1,11 @@
-import { useContext } from "react";
-import { RouterProvider } from "react-router-dom";
-import router from "./routes"
-import { ThemeContext } from "./context/theme";
+//import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
+import { ThemeProvider } from "./context/theme";
 
-const App = () => {
-  const currentTheme = useContext(ThemeContext)
-
-  return (
-    <div>
-      {currentTheme.theme}
-      <RouterProvider router={router} />
-    </div>
-  );
-}
-export default App;
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+)
