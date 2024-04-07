@@ -7,7 +7,6 @@ import Signup from "../pages/signup"
 import Projects from "../pages/projects";
 import Members from "../pages/members";
 import Logout from "../pages/logout";
-import Dashboard from "../pages/dashboard";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +31,7 @@ const router = createBrowserRouter([
     path: "account",
     element: (
       <ProtectedRoute>
-        <Dashboard />
+        <AccountLayout />
       </ProtectedRoute>
     ),
     children: [
