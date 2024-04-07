@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
 import { useReducer } from 'react';
 
@@ -83,7 +84,7 @@ const ProjectList: React.FC = () => {
         <div>
           {state.isLoading ? (
             // <div>Loading...</div> // You can replace this with a progress bar component
-            <progress value={null}/>
+            <progress value={50} max={100}/>
           ) : (
             <div className="grid gap-4 grid-cols-4 mt-5">
               {state.projects.map(project => (
