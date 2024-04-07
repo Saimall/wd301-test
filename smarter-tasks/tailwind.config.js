@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // tailwind.config.js
+=======
+>>>>>>> c2502501 (L6)
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,5 +12,9 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+<<<<<<< HEAD
   darkMode: "class"
 }
+=======
+}
+>>>>>>> c2502501 (L6)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // import Signup from "./pages/signup";
 // import Signin from "./pages/signin";
@@ -55,8 +56,63 @@ const App = () => {
   return (
     <div className={`h-screen w-full mx-auto py-2 ${theme === "dark" ? "dark" : ""}`}>
       {theme}
+=======
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Signup from "./pages/signup";
+import Signin from "./pages/signin";
+import HomePage from "./pages/HomePage";
+import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "./pages/Notfound";
+import Dashboard from "./pages/dashboard";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Signup />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    path: "/notfound",
+    element: <NotFound />
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "home",
+        element: <HomePage />,
+      }
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />
+  }
+]);
+
+
+function App() {
+  return (
+    <div>
+>>>>>>> c2502501 (L6)
       <RouterProvider router={router} />
     </div>
   );
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2502501 (L6)
 export default App;
