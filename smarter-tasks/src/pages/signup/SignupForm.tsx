@@ -36,11 +36,7 @@ const SignupForm: React.FC = () => {
 
             console.log('Sign-up successful');
             
-<<<<<<< HEAD
-            navigate("/account");
-=======
             navigate("/dashboard");
->>>>>>> c2502501 (L6)
         } catch (error) {
             console.error('Sign-up failed:', error);
         }

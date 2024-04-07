@@ -36,11 +36,7 @@ const SigninForm: React.FC = () => {
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('userData', JSON.stringify(data.user));
 
-<<<<<<< HEAD
-      navigate("/account");
-=======
       navigate("/dashboard");
->>>>>>> c2502501 (L6)
 
     } catch (error) {
       console.error('Sign-in failed:', error);
