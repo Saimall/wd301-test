@@ -13,7 +13,7 @@ export default function MemberListItems() {
   const dispatch = useMembersDispatch();
   // I'll define a new constant called `state`, to call the useMembersState() hook, 
   // and get access to members state.
-  let state: any = useMembersState() || {};
+  let state: any = useMembersState();
   // Next, I'll destructure the state object to gain access to projects, 
   // isLoading, isError and errorMessage property.
   const { members, isLoading, isError, errorMessage } = state;
@@ -36,12 +36,12 @@ export default function MemberListItems() {
     <>
       {members?.map((member: any) => {
 
-        // if(member.hasOwnProperty('user')){
-        //   member = member.user
-        // }
+        if(member.hasOwnProperty('user')){
+          member = member.user
+        }
 
         return (
-          <div key={member.id} className="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+          <div key={member.id} className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.name}</h5>
             <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.email}</h5>
             <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.password}</h5>

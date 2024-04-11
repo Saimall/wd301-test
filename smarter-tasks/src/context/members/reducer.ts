@@ -75,25 +75,25 @@ interface Member{
           members: state.members.filter(member => member.id !== action.payload.id)
         }
 
-      case "FETCH_MEMBERS_REQUEST":
-        return {
-          ...state,
-          isLoading: true
-        };
+      // case "FETCH_MEMBERS_REQUEST":
+      //   return {
+      //     ...state,
+      //     isLoading: true
+      //   };
 
-      case "FETCH_MEMBERS_SUCCESS":
-        return {
-          ...state,
-          isLoading: false,
-          members: action.payload,
-        };
-      case "FETCH_MEMBERS_FAILURE":
-        return {
-          ...state,
-          isLoading: false,
-          isError: true,
-          errorMessage: action.payload
-        }
+      // case "FETCH_MEMBERS_SUCCESS":
+      //   return {
+      //     ...state,
+      //     isLoading: false,
+      //     members: action.payload,
+      //   };
+      // case "FETCH_MEMBERS_FAILURE":
+      //   return {
+      //     ...state,
+      //     isLoading: false,
+      //     isError: true,
+      //     errorMessage: action.payload
+      //   }
 
       default:
         return state;

@@ -30,9 +30,6 @@ export const deleteMember = async(dispatch:any , id: number) => {
     console.log('Error deleting member:', error);
     return {ok: false, error};
   }
-
-
-
 }
 
 export const fetchMembers = async (dispatch: any) => {
@@ -80,7 +77,7 @@ export const addMember = async (dispatch: any,args : any) => {
       // with `type` set to `ADD_PROJECT_SUCCESS` and in `payload` we will send the 
       // new project `data`.
       
-      dispatch({ type: 'ADD_MEMBER_SUCCESS', payload: data });
+      dispatch({ type: 'ADD_MEMBER_SUCCESS', payload: data.user });
   
       // Next, I'll return a status called "ok", with value `true`
       // as everything went well.
