@@ -34,12 +34,12 @@ const NewMember = () => {
   }
   
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { name, email ,password} = data;
+    const { name, email} = data;
 
     // Next, I'll call the addProject function with two arguments: 
     //`dispatchProjects` and an object with `name` attribute. 
     // As it's an async function, we will await for the response.
-    const response = await addMember(dispatchMembers, { name ,email, password })
+    const response = await addMember(dispatchMembers, { name ,email })
 
     // Then depending on response, I'll either close the modal...
     if (response.ok) {
@@ -92,7 +92,6 @@ const NewMember = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      {/* I'll show the error, if it exists.*/}
                       {error &&
                         <span>{error}</span>
                       }
