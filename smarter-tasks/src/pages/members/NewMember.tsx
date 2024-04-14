@@ -34,12 +34,12 @@ const NewMember = () => {
   }
   
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { name, email} = data;
+    const { name, email, password} = data;
 
     // Next, I'll call the addProject function with two arguments: 
     //`dispatchProjects` and an object with `name` attribute. 
     // As it's an async function, we will await for the response.
-    const response = await addMember(dispatchMembers, { name ,email })
+    const response = await addMember(dispatchMembers, { name ,email , password})
 
     // Then depending on response, I'll either close the modal...
     if (response.ok) {
@@ -117,9 +117,9 @@ const NewMember = () => {
                         {errors.email && <span>This field is required</span>}
                       <input
                         type="text"
-                        placeholder='Enter Member name...'
+                        placeholder='Enter Member password...'
                         autoFocus
-                        {...register('name', { required: true })}
+                        {...register('password', { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.name ? 'border-red-500' : ''
                         }`}

@@ -37,8 +37,8 @@ interface Member{
   | { type: 'ADD_MEMBER_SUCCESS'; payload: Member }
   | { type: 'API_CALL_END'; payload: Member[] }
   | { type: 'API_CALL_ERROR'; payload: string }
-  | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
-  | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
+  // | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
+  // | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
   
   // Next, I'll update reducer function accordingly with newly defined types
   
