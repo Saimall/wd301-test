@@ -5,6 +5,7 @@ const Logout = () => {
   useEffect(() => {
     localStorage.removeItem("authToken")
     localStorage.removeItem("userData")
+    localStorage.removeItem("members");
   }, [])
   
   return <Navigate to="/signin" />;

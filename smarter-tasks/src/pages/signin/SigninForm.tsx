@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
@@ -48,14 +49,13 @@ const SigninForm: React.FC = () => {
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('userData', JSON.stringify(data.user));
 
-      navigate("/account");
+      navigate("/account/projects");
 
     } catch (error) {
       console.error('Sign-in failed:', error);
       setError(error as React.SetStateAction<null>)
     }
   };
-
 
   // Then we will use the handleSubmit function with our form
   return (

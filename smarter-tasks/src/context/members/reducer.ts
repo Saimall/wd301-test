@@ -72,7 +72,7 @@ interface Member{
       case 'DELETE_MEMBER_SUCCESS':
         return {
           ...state,
-          members: state.members.filter(member => member.id !== action.payload.id)
+          members: state.members.filter((member) => member.id !== action.payload.id)
         }
 
       // case "FETCH_MEMBERS_REQUEST":

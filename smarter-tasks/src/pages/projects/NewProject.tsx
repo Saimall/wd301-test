@@ -33,7 +33,7 @@ const NewProject = () => {
     //`dispatchProjects` and an object with `name` attribute. 
     // As it's an async function, we will await for the response.
     const response = await addProject(dispatchProjects, { name })
-
+    
     // Then depending on response, I'll either close the modal...
     if (response.ok) {
       setIsOpen(false)

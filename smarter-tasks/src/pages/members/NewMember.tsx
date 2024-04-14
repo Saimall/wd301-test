@@ -1,7 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
-import "./card.css";
 
 // First I'll import the addProject function
 import { addMember } from '../../context/members/actions';
@@ -34,12 +33,13 @@ const NewMember = () => {
   }
   
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { name, email, password} = data;
+    const {name, email, password} = data;
 
     // Next, I'll call the addProject function with two arguments: 
     //`dispatchProjects` and an object with `name` attribute. 
     // As it's an async function, we will await for the response.
     const response = await addMember(dispatchMembers, { name ,email , password})
+    localStorage.setItem("members",JSON.stringify(data));
 
     // Then depending on response, I'll either close the modal...
     if (response.ok) {

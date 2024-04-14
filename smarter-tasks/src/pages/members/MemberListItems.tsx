@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // First, I'll import the useMembersState custom hook to access projects state.
 
+import { useEffect } from "react";
 import { deleteMember } from "../../context/members/actions";
 import { useMembersDispatch, useMembersState } from "../../context/members/context";
 
@@ -16,8 +19,8 @@ export default function MemberListItems() {
   let state: any = useMembersState();
   // Next, I'll destructure the state object to gain access to projects, 
   // isLoading, isError and errorMessage property.
-  const { members, isLoading, isError, errorMessage } = state;
-  console.log(members);
+  
+  const { members = localStorage.getItem("members"), isLoading, isError, errorMessage } = state;
 
   // If `isLoading` is true, and there are no projects, in that case, 
   // I'll show a loading text
@@ -29,22 +32,21 @@ export default function MemberListItems() {
   if (isError) {
     return <span>{errorMessage}</span>;
   }
+  
+  useEffect(()=>{
+    members
+  },[]);
 
   // And finally I'll iterate over the projects object to show the 
   // individual projects card.
   return (
     <>
+        
       {members?.map((member: any) => {
-
-        if(member.hasOwnProperty('user')){
-          member = member.user
-        }
-
         return (
           <div key={member.id} className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.name}</h5>
             <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.email}</h5>
-            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.password}</h5>
             
             <button id = "delete-member" onClick={() => deleteMember(dispatch,member.id)}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
