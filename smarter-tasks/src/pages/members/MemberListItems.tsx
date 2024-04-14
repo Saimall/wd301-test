@@ -20,7 +20,7 @@ export default function MemberListItems() {
   // Next, I'll destructure the state object to gain access to projects, 
   // isLoading, isError and errorMessage property.
   
-  const { members = localStorage.getItem("members"), isLoading, isError, errorMessage } = state;
+  const { members, isLoading, isError, errorMessage } = state;
 
   // If `isLoading` is true, and there are no projects, in that case, 
   // I'll show a loading text
@@ -34,7 +34,7 @@ export default function MemberListItems() {
   }
   
   useEffect(()=>{
-    members
+    state
   },[]);
 
   // And finally I'll iterate over the projects object to show the 
@@ -44,9 +44,9 @@ export default function MemberListItems() {
         
       {members?.map((member: any) => {
         return (
-          <div key={member.id} className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.name}</h5>
-            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.email}</h5>
+          <div key={member.id} className="member text-left block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"><b>Name: </b> {member.name}</h5>
+            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"><b>Email: </b>{member.email}</h5>
             
             <button id = "delete-member" onClick={() => deleteMember(dispatch,member.id)}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

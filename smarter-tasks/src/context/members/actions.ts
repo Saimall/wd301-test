@@ -6,9 +6,6 @@ export const deleteMember = async(dispatch:any , id: number) => {
   
   try {
     const token = localStorage.getItem("authToken")?? "";
-    const member_list = localStorage.getItem("members")??"";
-
-    const list = JSON.parse(member_list);
 
     dispatch({ type: "DELETE_MEMBER_REQUEST" });
 
@@ -26,11 +23,7 @@ export const deleteMember = async(dispatch:any , id: number) => {
     }
 
     dispatch({ type: "DELETE_MEMBER_SUCCESS", payload: data });
-    list.filter((item:any) => item.id !== id);
 
-    localStorage.removeItem("members");
-    localStorage.setItem("members",JSON.stringify(list));
-    
     return {ok: true};
 
   } catch (error) {

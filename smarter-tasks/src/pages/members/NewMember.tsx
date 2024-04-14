@@ -39,7 +39,6 @@ const NewMember = () => {
     //`dispatchProjects` and an object with `name` attribute. 
     // As it's an async function, we will await for the response.
     const response = await addMember(dispatchMembers, { name ,email , password})
-    localStorage.setItem("members",JSON.stringify(data));
 
     // Then depending on response, I'll either close the modal...
     if (response.ok) {

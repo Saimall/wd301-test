@@ -37,8 +37,8 @@ interface Member{
   | { type: 'ADD_MEMBER_SUCCESS'; payload: Member }
   | { type: 'API_CALL_END'; payload: Member[] }
   | { type: 'API_CALL_ERROR'; payload: string }
-  // | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
-  // | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
+  | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
+  | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
   
   // Next, I'll update reducer function accordingly with newly defined types
   
@@ -75,25 +75,25 @@ interface Member{
           members: state.members.filter((member) => member.id !== action.payload.id)
         }
 
-      // case "FETCH_MEMBERS_REQUEST":
-      //   return {
-      //     ...state,
-      //     isLoading: true
-      //   };
+      case "FETCH_MEMBERS_REQUEST":
+        return {
+          ...state,
+          isLoading: true
+        };
 
-      // case "FETCH_MEMBERS_SUCCESS":
-      //   return {
-      //     ...state,
-      //     isLoading: false,
-      //     members: action.payload,
-      //   };
-      // case "FETCH_MEMBERS_FAILURE":
-      //   return {
-      //     ...state,
-      //     isLoading: false,
-      //     isError: true,
-      //     errorMessage: action.payload
-      //   }
+      case "FETCH_MEMBERS_SUCCESS":
+        return {
+          ...state,
+          isLoading: false,
+          members: action.payload,
+        };
+      case "FETCH_MEMBERS_FAILURE":
+        return {
+          ...state,
+          isLoading: false,
+          isError: true,
+          errorMessage: action.payload
+        }
 
       default:
         return state;
