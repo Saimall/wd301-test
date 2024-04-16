@@ -40,6 +40,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
+      { index: true, element: <Navigate to="/account/projects" replace /> },
       {
         path: "projects",
         element: (<Projects />)
