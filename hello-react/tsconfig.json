@@ -7,8 +7,9 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
+    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
-    "allowImportingTsExtensions": "iKnowWhatImDoing",
+    "allowImportingTsExtensions": true,
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"]
