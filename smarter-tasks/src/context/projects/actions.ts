@@ -50,3 +50,32 @@ export const addProject = async (dispatch: any, args: any) => {
       return { ok: false, error }
     }
   };
+
+// export const deleteProject = async(dispatch:any , project: Project) => {
+//   try{
+    
+//     const list = await fetchProjects(dispatch);
+    
+//     if (!list) {
+//       throw new Error('Failed to fetch project');
+//     }
+
+//     let flag = false;
+    
+//     list.forEach((item:Project) => {
+//       if(item.id === project.id){
+//         flag = true;
+//       }
+//     })
+    
+//     if(flag){
+//       dispatch({type: "DELETE_PROJECT_SUCCESS", payload: project});
+//     }
+//     list.filter((item:any) => item.id !== project.id);
+    
+
+//   }catch(error){
+//     console.log("Error Deleting project",error);
+//     dispatch({type: "DELETE_PROJECT_FAILURE",payload: "Project Deletion Failed !!"});
+//   }
+// }

@@ -36,6 +36,8 @@ interface Project {
   | { type: 'FETCH_PROJECTS_SUCCESS'; payload: Project[] }
   | { type: 'FETCH_PROJECTS_FAILURE'; payload: string }
   | { type: 'ADD_PROJECT_SUCCESS'; payload: Project }
+  // | { type: 'DELETE_PROJECT_SUCCESS'; payload: Project}
+  // | { type: 'DELETE_PROJECT_FAILURE'; payload: string}
   
   // Next, I'll update reducer function accordingly with newly defined types
   
@@ -64,6 +66,37 @@ interface Project {
       case 'ADD_PROJECT_SUCCESS':
         return{...state,projects: [...state.projects, action.payload]};
 
+      case "FETCH_PROJECTS_REQUEST":
+        return {
+          ...state,
+          isLoading: true
+        };
+
+      case "FETCH_PROJECTS_SUCCESS":
+        return {
+          ...state,
+          isLoading: false,
+          projects: action.payload,
+        };
+      case "FETCH_PROJECTS_FAILURE":
+        return {
+          ...state,
+          isLoading: false,
+          isError: true,
+          errorMessage: action.payload
+        }
+      // case "DELETE_PROJECT_SUCCESS":
+      //   return{
+      //     ...state,
+      //     projects: state.projects.filter((item) => item.id !== action.payload.id)
+      //   }
+      // case "DELETE_PROJECT_FAILURE":
+      //   return{
+      //     ...state,
+      //     isLoading: false,
+      //     isError: true,
+      //     errorMessage: action.payload
+      //   }
       default:
         return state;
     }

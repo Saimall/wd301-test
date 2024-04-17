@@ -8,7 +8,7 @@
 // First, I'll import the useMembersState custom hook to access projects state.
 
 import { useEffect } from "react";
-import { deleteMember } from "../../context/members/actions";
+import { deleteMember, fetchMembers } from "../../context/members/actions";
 import { useMembersDispatch, useMembersState } from "../../context/members/context";
 
 
@@ -21,7 +21,7 @@ export default function MemberListItems() {
   // Next, I'll destructure the state object to gain access to projects, 
   // isLoading, isError and errorMessage property.
   
-  const { members, isLoading, isError, errorMessage } = state;
+  let { members, isLoading, isError, errorMessage } = state;
 
   // If `isLoading` is true, and there are no projects, in that case, 
   // I'll show a loading text
@@ -33,17 +33,19 @@ export default function MemberListItems() {
     //Delete function from actions.tsx
     deleteMember(dispatch,memberId);
 
-    //Reload the window 
-    window.location.reload();
+    //Re-fetch and re-render..
+    members = await fetchMembers(dispatch);
   }
+  
+  useEffect(()=>{
+    state
+  },[members]);
+
 // Next, if there is an error, I'll show the error message.
   if (isError) {
     return <span>{errorMessage}</span>;
   }
   
-  useEffect(()=>{
-    state
-  },[]);
 
   // And finally I'll iterate over the projects object to show the 
   // individual projects card.
