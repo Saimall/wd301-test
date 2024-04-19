@@ -5,8 +5,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// First, I'll import the useMembersState custom hook to access projects state.
-
 import { useEffect } from "react";
 import { deleteMember, fetchMembers } from "../../context/members/actions";
 import { useMembersDispatch, useMembersState } from "../../context/members/context";

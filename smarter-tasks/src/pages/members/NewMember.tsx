@@ -96,6 +96,7 @@ const NewMember = () => {
                       }
                       <input
                         type="text"
+                        id = "name"
                         placeholder='Enter Member name...'
                         autoFocus
                         {...register('name', { required: true })}
@@ -106,6 +107,7 @@ const NewMember = () => {
                         {errors.name && <span>This field is required</span>}
                       <input
                         type="email"
+                        id='email'
                         placeholder='Enter Member email...'
                         autoFocus
                         {...register('email', { required: true })}
@@ -116,6 +118,7 @@ const NewMember = () => {
                         {errors.email && <span>This field is required</span>}
                       <input
                         type="text"
+                        id = "password"
                         placeholder='Enter Member password...'
                         autoFocus
                         {...register('password', { required: true })}
