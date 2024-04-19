@@ -5,8 +5,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useEffect } from "react";
-import { deleteMember, fetchMembers } from "../../context/members/actions";
+import { deleteMember} from "../../context/members/actions";
 import { useMembersDispatch, useMembersState } from "../../context/members/context";
 
 
@@ -30,14 +29,7 @@ export default function MemberListItems() {
   const handleDelete = async(memberId : number) => {
     //Delete function from actions.tsx
     deleteMember(dispatch,memberId);
-
-    //Re-fetch and re-render..
-    members = await fetchMembers(dispatch);
   }
-  
-  useEffect(()=>{
-    state
-  },[members]);
 
 // Next, if there is an error, I'll show the error message.
   if (isError) {
