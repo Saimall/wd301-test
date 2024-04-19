@@ -32,8 +32,11 @@ interface Member{
 
   export type MembersActions = 
   | { type: 'FETCH_MEMBERS_REQUEST' }
-  | { type: 'DELETE_MEMBER_SUCCESS',payload: number}
+  | { type: 'API_CALL_START' }
+  | { type: 'DELETE_MEMBER_SUCCESS',payload: Member}
   | { type: 'ADD_MEMBER_SUCCESS'; payload: Member }
+  | { type: 'API_CALL_END'; payload: Member[] }
+  | { type: 'API_CALL_ERROR'; payload: string }
   | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
   | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
   
@@ -43,6 +46,24 @@ interface Member{
   
   export const reducer = (state: MembersState = initialState, action: MembersActions): MembersState => {
     switch (action.type) {
+      case "API_CALL_START":
+        return {
+          ...state,
+          isLoading: true
+        };   
+      case "API_CALL_END":
+        return {
+          ...state,
+          isLoading: false,
+          members: action.payload,
+        };      
+      case "API_CALL_ERROR":
+        return {
+          ...state,
+          isLoading: false,
+          isError: true, 
+          errorMessage: action.payload
+        };
         
       case 'ADD_MEMBER_SUCCESS':
         return{...state,members: [...state.members, action.payload]};
@@ -51,7 +72,7 @@ interface Member{
       case 'DELETE_MEMBER_SUCCESS':
         return {
           ...state,
-          members: state.members.filter((member) => member.id !== action.payload)
+          members: state.members.filter((member) => member.id !== action.payload.id)
         }
 
       case "FETCH_MEMBERS_REQUEST":

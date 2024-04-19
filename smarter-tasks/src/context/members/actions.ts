@@ -22,7 +22,7 @@ export const deleteMember = async(dispatch:any , id: number) => {
       throw new Error('Failed to delete member');
     }
 
-    dispatch({ type: "DELETE_MEMBER_SUCCESS", payload: id});
+    dispatch({ type: "DELETE_MEMBER_SUCCESS", payload: data });
 
     return {ok: true};
 
@@ -81,7 +81,7 @@ export const addMember = async (dispatch: any,args : any) => {
   
       // Next, I'll return a status called "ok", with value `true`
       // as everything went well.
-      window.location.reload();
+
       return { ok: true };
     } catch (error) {
       console.error('Operation failed:', error);
