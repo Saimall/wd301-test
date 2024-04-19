@@ -10,7 +10,7 @@ const Members = () => {
     <>
       <div className="flex justify-between">
         <h2 className="text-2xl font-medium tracking-tight">Members</h2>
-        <div className="w-1/3 text-black shadow-lg container bordered text-m border-purple-400 rounded w-auto items-center justify-center bg-cyan-200 hover:bg-cyan-400">
+        <div className="w-auto text-black shadow-lg container bordered text-m border-purple-400 rounded w-auto items-center justify-center bg-cyan-200 hover:bg-cyan-400">
           <h2 className="font-bold text-center">Current User Details</h2>
 
           <div className="container justify-center text-left">

@@ -50,8 +50,8 @@ export default function MemberListItems() {
 
         return (
           <div key={member.id} className="member text-left block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"><b>Name: </b> {member.name}</h5>
-            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"><b>Email: </b>{member.email}</h5>
+            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.name}</h5>
+            <h6 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{member.email}</h6>
             
             <button id = "delete-member" onClick={() => handleDelete(member.id)}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
