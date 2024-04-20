@@ -71,11 +71,12 @@ const SigninForm: React.FC = () => {
           Email
         </label>
         <input
+          {...register('email', { required: true })}
           type="email"
           id="email"
           autoFocus
           value={email}
-          {...register('email', { required: true })}
+          name="email"
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
@@ -96,6 +97,7 @@ const SigninForm: React.FC = () => {
           autoFocus
           value={password}
           {...register('password', { required: true })}
+          name="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
           required
@@ -106,6 +108,7 @@ const SigninForm: React.FC = () => {
       <div className="mt-8">
         <button
           type="submit"
+          name="submit"
           className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray"
         >
           Sign In

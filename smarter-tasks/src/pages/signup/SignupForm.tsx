@@ -71,6 +71,7 @@ const SignupForm: React.FC = () => {
                 <input type="text"
                     {...register('organisationName', { required: true })}
                     id="organisationName" 
+                    name="organizationName"
                     autoFocus
                     value={organisationName}
                     onChange={(e) => setOrganisationName(e.target.value)}
@@ -84,6 +85,7 @@ const SignupForm: React.FC = () => {
                     type="text"
                     {...register('userName', { required: true })}
                     id="userName"
+                    name="userName"
                     autoFocus
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
@@ -97,6 +99,7 @@ const SignupForm: React.FC = () => {
                     type="email"
                     {...register("userEmail", {required : true})}
                     id="userEmail"
+                    name="userEmail"
                     value={userEmail}
                     autoFocus
                     onChange={(e) => setUserEmail(e.target.value)}
@@ -109,7 +112,8 @@ const SignupForm: React.FC = () => {
                 <input
                     type="text" 
                     {...register("userPassword", {required : true})}
-                    id="userPassword" 
+                    id="userPassword"
+                    name="userPassword" 
                     autoFocus
                     value={userPassword} 
                     onChange={(e) => setUserPassword(e.target.value)} 
@@ -120,6 +124,7 @@ const SignupForm: React.FC = () => {
             <button 
                 type="submit" 
                 id = "submit"
+                name="submit"
                 className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">
                 Sign up
             </button>
