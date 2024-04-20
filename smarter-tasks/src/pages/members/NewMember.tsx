@@ -22,11 +22,40 @@ const NewMember = () => {
   };
 
   const openModal = () => {
+<<<<<<< Updated upstream
     setIsOpen(true);
   };
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { name, email, password } = data;
+=======
+    setIsOpen(true)
+  }
+  
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+<<<<<<< Updated upstream
+    const { name, email} = data;
+=======
+<<<<<<< Updated upstream
+    const {name, email, password} = data;
+=======
+    const { name, email ,password} = data;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+
+    // Next, I'll call the addProject function with two arguments: 
+    //`dispatchProjects` and an object with `name` attribute. 
+    // As it's an async function, we will await for the response.
+<<<<<<< Updated upstream
+    const response = await addMember(dispatchMembers, { name ,email })
+=======
+<<<<<<< Updated upstream
+    const response = await addMember(dispatchMembers, { name ,email , password})
+=======
+    const response = await addMember(dispatchMembers, { name ,email, password })
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
     try {
         const response = await addMember(dispatchMembers, { name, email, password });
@@ -85,7 +114,13 @@ const NewMember = () => {
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
                       {/* I'll show the error, if it exists.*/}
+<<<<<<< Updated upstream
                       {error && <span>{error}</span>}
+=======
+                      {error &&
+                        <span>{error}</span>
+                      }
+>>>>>>> Stashed changes
                       <input
                         id="name"
                         type="text"
