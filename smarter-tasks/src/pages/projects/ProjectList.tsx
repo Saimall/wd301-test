@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import { fetchProjects } from "../../context/projects/actions";
 import { useEffect } from "react";
 import { useProjectsDispatch } from "../../context/projects/context";
@@ -12,19 +11,10 @@ const ProjectList: React.FC = () => {
   }, [])
   return (
     <div className="grid grid-cols-4 gap-4 mt-5">
-=======
-import React from "react";
-import ProjectListItems from "./ProjectListItems";
-
-const ProjectList: React.FC = () => {
-  return (
-    <div className="grid gap-4 grid-cols-4 mt-5">
->>>>>>> Stashed changes
       <ProjectListItems />
     </div>
   );
 };
-<<<<<<< Updated upstream
 export default ProjectList;
 
 
@@ -115,7 +105,3 @@ export default ProjectList;
 // };
 
 // export default ProjectList;
-=======
-
-export default ProjectList;
->>>>>>> Stashed changes
