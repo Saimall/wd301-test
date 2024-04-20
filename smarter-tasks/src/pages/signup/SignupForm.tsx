@@ -107,7 +107,7 @@ const SignupForm: React.FC = () => {
             <div>
                 <label className="block text-gray-700 font-semibold mb-2">Password:</label>
                 <input
-                    type="password" 
+                    type="text" 
                     {...register("userPassword", {required : true})}
                     id="userPassword" 
                     autoFocus
@@ -119,6 +119,7 @@ const SignupForm: React.FC = () => {
             </div>
             <button 
                 type="submit" 
+                id = "submit"
                 className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">
                 Sign up
             </button>

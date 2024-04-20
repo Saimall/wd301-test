@@ -62,7 +62,6 @@ const App = () => {
         </MembersProvider>
       </ProjectsProvider>
     </div>
-
   )
 }
 export default App;
