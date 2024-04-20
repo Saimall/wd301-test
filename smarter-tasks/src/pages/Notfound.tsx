@@ -1,15 +1,16 @@
-import React from "react";
+// import React from "react";
+import { Link } from "react-router-dom";
 
-const Notfound: React.FC = () => {
-
-    return (
-        <div className="flex flex-col justify-center items-center h-screen bordered border-purple-500 border-2 w-full">
-            <p className="justify-center w-fit"> <b>404</b> The requested route was not found</p>
-            <button className="text-white bg-green-400 hover:bg-green-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" id="backToHomeButton">
-                <a href="/account">Go to home</a>
-            </button>
-        </div>
-    );
+const Notfound = () => {
+  return (
+    <div>
+      <h1>404 - Not Found</h1>
+      <p>The page you are looking for does not exist.</p>
+      <Link to="/home">
+        <button id="backToHomeButton" className="bg-blue-500 text-white py-2 px-4 mb-3 rounded hover:bg-blue-700">Back to Homepage</button>
+      </Link>
+    </div>
+  );
 };
 
 export default Notfound;

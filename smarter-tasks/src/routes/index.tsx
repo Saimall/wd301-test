@@ -1,23 +1,16 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import AccountLayout from "../layouts/account"
-import ProtectedRoute from "./ProtectedRoutes";
+import ProtectedRoute from "./ProtectedRoutes"
 import Signin from "../pages/signin"
 import Signup from "../pages/signup"
-import Projects from "../pages/projects";
-import Members from "../pages/members";
-import Logout from "../pages/logout";
+import Projects from "../pages/projects"
+import Members from "../pages/members"
+import Logout from "../pages/logout"
 import Notfound from "../pages/Notfound";
 
 const router = createBrowserRouter([
-  {
-    path: "/", 
-    element: <Signin />
-  },
-  { 
-    path: "/logout", 
-    element: <Logout /> 
-  },
+  { path: "/", element: <Navigate to="/account/projects" replace /> },
   {
     path: "/signin", 
     element: <Signin />
@@ -26,14 +19,13 @@ const router = createBrowserRouter([
     path: "/signup", 
     element: <Signup />
   },
-  {
-    path: "/notfound",
-    element: <Notfound />
+  { 
+    path: "/logout", 
+    element: <Logout /> 
   },
-
   // Protected Routes
   {
-    path: "/account",
+    path: "account",
     element: (
       <ProtectedRoute>
         <AccountLayout />
@@ -52,8 +44,12 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/notfound",
+    element: (<Notfound />)
+  },
+  {
     path: "*",
-    element: <Navigate to='/notfound' replace /> 
+    element: <Navigate to={"/notfound"} replace />
   }
 ]);
 
