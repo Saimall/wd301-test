@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate} from "react-router-dom";
-
+import NewTask from "../pages/tasks/NewTask";
 import AccountLayout from "../layouts/account"
 import ProtectedRoute from "./ProtectedRoutes"
 import Signin from "../pages/signin"
@@ -49,11 +49,14 @@ const router = createBrowserRouter([
                 path: "tasks",
                 children: [
                   { index: true, element: <Navigate to="../" replace /> },
-                  { path: "new", element: <>Show Modal window to create a task</> },
-                  {
-                    path: ":taskID",
-                    children: [{ index: true, element: <>Show Task Details</> }],
-                  },
+                    { 
+                      path: "new", 
+                      element: <NewTask />,
+                    },
+                    {
+                      path: ":taskID",
+                      children: [{ index: true, element: <>Show Task Details</> }],
+                    },
                 ],
               },
             ],
