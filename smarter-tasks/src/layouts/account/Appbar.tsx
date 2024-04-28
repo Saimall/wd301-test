@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import { useState, useContext, Fragment } from 'react'
 import { Disclosure, Menu, Transition, Switch } from '@headlessui/react'
 import { UserCircleIcon } from '@heroicons/react/24/outline'
@@ -82,7 +83,7 @@ const Appbar = () => {
                       <span
                       aria-hidden="true"
                       className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
-                          pointer-events-none inline-block h-[16px] w-[16px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                          pointer-events-none inline-block h-[18px] w-[17px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                       />
                   </Switch>
                   <Menu as="div" className="relative ml-3">

@@ -35,35 +35,28 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Navigate to="/account/projects" replace /> },
-      {
+      { 
         path: "projects",
         element: <ProjectContainer />,
         children: [
           { index: true, element: <Projects /> },
           {
-            path: "projects",
-            element: <ProjectContainer />,
+            path: ":projectID",
+            element: <ProjectDetails />,
             children: [
-              { index: true, element: <Projects /> },
+              { index: true, element: <></> },
               {
-                path: ":projectID",
-                element: <ProjectDetails />,
+                path: "tasks",
                 children: [
-                  { index: true, element: <></> },
+                  { index: true, element: <Navigate to="../" /> },
                   {
-                    path: "tasks",
+                    path: "new",
+                    element: <NewTask />,
+                  },
+                  {
+                    path: ":taskID",
                     children: [
-                      { index: true, element: <Navigate to="../" /> },
-                      {
-                        path: "new",
-                        element: <NewTask />,
-                      },
-                      {
-                        path: ":taskID",
-                        children: [
-                          { index: true, element: <TaskDetailsContainer /> },
-                        ],
-                      },
+                      { index: true, element: <TaskDetailsContainer /> },
                     ],
                   },
                 ],
