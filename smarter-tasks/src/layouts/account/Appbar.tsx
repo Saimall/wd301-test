@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-empty-pattern */
 import { useState, useContext, Fragment } from 'react'
 import { Disclosure, Menu, Transition, Switch } from '@headlessui/react'

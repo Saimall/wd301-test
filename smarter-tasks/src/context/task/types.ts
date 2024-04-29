@@ -1,9 +1,3 @@
-export interface TaskListState {
-  isLoading: boolean;
-  isError: boolean;
-  errorMessage: string;
-}
-
 // Actions that are available
 export enum TaskListAvailableAction {
   FETCH_TASKS_REQUEST = "FETCH_TASKS_REQUEST",
