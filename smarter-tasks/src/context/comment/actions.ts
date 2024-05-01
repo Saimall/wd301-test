@@ -1,6 +1,8 @@
+/* eslint-disable prefer-const */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { API_ENDPOINT } from "../../config/constants";
-import { CommentListAvailableAction, CommentsDispatch, CommentDetails } from "./types";
+import { CommentListAvailableAction, CommentsDispatch } from "./types";
 import { CommentDetailsPayload } from "./types";
 
 export const addComments = async (
@@ -88,7 +90,4 @@ export const fetchComment = async (
   }
 };
 
-export const reorderComments = (dispatch: CommentsDispatch, newState: CommentDetails) => {
-    dispatch({type: CommentListAvailableAction.REORDER_COMMENTS, payload: newState});
-};
 

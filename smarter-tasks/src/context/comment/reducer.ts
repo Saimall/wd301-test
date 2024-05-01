@@ -54,13 +54,6 @@ export const commentReducer: Reducer<CommentListState, CommentActions> = (
         isError: true,
         errorMessage: action.payload,
       };
-    
-    case CommentListAvailableAction.REORDER_COMMENTS:
-        return{
-            ...state,
-            isLoading: true
-        }
-
     default:
       return state;
   }

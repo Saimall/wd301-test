@@ -14,7 +14,7 @@ import { updateTask } from "../../context/task/actions";
 import { useMembersState } from "../../context/members/context";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
-import { fetchComment, addComments } from "../../context/comment/actions";
+import { fetchComment, addComments} from "../../context/comment/actions";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
@@ -60,6 +60,9 @@ const TaskDetails = () => {
         if (projectID && taskID) {
           console.log("Fetching comments...");
           await fetchComment(dispatch, projectID, taskID);
+
+          //Reorder them at site
+          // await reorderComments(dispatch,commentsState);
         }
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -288,19 +291,22 @@ const TaskDetails = () => {
                                     <p className="m-2">
                                       <strong>Timestamp:</strong>{" "}
                                       {comment.createdAt &&
-                                        new Date(comment.createdAt).toLocaleString()}
+                                        comment.createdAt.toLocaleString()}
+                                    </p>
+                                  
+                                    <p className="m-2">
+                                      <strong>Comment:</strong> {comment.description}
                                     </p>
                                   </>
                                 )}
-                                <p className="m-2">
-                                  <strong>Comment:</strong> {comment.description}
-                                </p>
+                                
                               </div>
                             </div>
                           ))}
                         </div>
                       )}
                     </div>
+
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

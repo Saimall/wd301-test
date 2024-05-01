@@ -35,8 +35,6 @@ export enum CommentListAvailableAction {
     CREATE_COMMENT_REQUEST = "CREATE_COMMENT_REQUEST",
     CREATE_COMMENT_SUCCESS = "CREATE_COMMENT_SUCCESS",
     CREATE_COMMENT_FAILURE = "CREATE_COMMENT_FAILURE",
-
-    REORDER_COMMENTS = "REORDER_COMMENTS",
 }
 
 export type CommentActions = 
@@ -45,8 +43,6 @@ export type CommentActions =
  | {type: CommentListAvailableAction.FETCH_COMMENT_SUCCESS; payload: CommentDetails[]}
  | {type: CommentListAvailableAction.CREATE_COMMENT_REQUEST}
  | {type: CommentListAvailableAction.CREATE_COMMENT_FAILURE; payload: string}
- | {type: CommentListAvailableAction.CREATE_COMMENT_SUCCESS; payload: CommentDetails}
- | {type: CommentListAvailableAction.REORDER_COMMENTS ; payload: CommentDetails};
-
+ | {type: CommentListAvailableAction.CREATE_COMMENT_SUCCESS; payload: CommentDetails};
 //A type to hold dispatch in context..
 export type CommentsDispatch = React.Dispatch<CommentActions>;
