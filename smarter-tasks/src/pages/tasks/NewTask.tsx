@@ -83,12 +83,12 @@ const NewTask = () => {
                       <input
                         type="text"
                         required
-                        name="title"
                         placeholder="Enter title"
-                        autoFocus
-                        id="title"
                         // Register the title field
                         {...register("title", { required: true })}
+                        name="title"
+                        autoFocus
+                        id="title"
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <input
@@ -96,22 +96,22 @@ const NewTask = () => {
                         required
                         placeholder="Enter description"
                         autoFocus
-                        name="description"
-                        id="description"
                         // register the description field
                         {...register("description", { required: true })}
+                        name="description"
+                        id="description"
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       {errors && <span>This feild is required</span>}
                       <input
                         type="date"
-                        name="dueDate"
                         required
                         placeholder="Enter due date"
-                        autoFocus
-                        id="dueDate"
                         // register due date field
                         {...register("dueDate", { required: true })}
+                        name="dueDate"
+                        autoFocus
+                        id="dueDate"
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       {errors && <span>This feild is required</span>}
