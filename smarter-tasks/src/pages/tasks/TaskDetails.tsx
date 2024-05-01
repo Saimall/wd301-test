@@ -1,26 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable prefer-const */
 import { Dialog, Listbox, Transition } from "@headlessui/react";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
-import {
-  useCommentsState,
-  useCommentsDispatch,
-} from "../../context/comment/context";
 import { updateTask } from "../../context/task/actions";
 import { useMembersState } from "../../context/members/context";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
-import { fetchComment, addComments} from "../../context/comment/actions";
+import CommentListItem from "../comments/CommentListItem";
+import NewComment from "../comments/NewComment";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
-};
-type Inputs = {
-  description: string;
 };
 
 const formatDateForPicker = (isoDate: string) => {
@@ -34,13 +27,12 @@ const formatDateForPicker = (isoDate: string) => {
 
 const TaskDetails = () => {
   let [isOpen, setIsOpen] = useState(true);
-  let [inputComment, setInputComment] = useState("");
 
   const { projectID = "", taskID = "" } = useParams<{
     projectID?: string;
     taskID?: string;
   }>();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const projectState = useProjectsState();
   const memberState = useMembersState();
@@ -52,25 +44,6 @@ const TaskDetails = () => {
   )[0];
 
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
-  const dispatch = useCommentsDispatch();
-  const commentsState = useCommentsState();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (projectID && taskID) {
-          console.log("Fetching comments...");
-          await fetchComment(dispatch, projectID, taskID);
-
-          //Reorder them at site
-          // await reorderComments(dispatch,commentsState);
-        }
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-      }
-    };
-
-    fetchData();
-  }, [projectID, taskID]);
 
   const [selectedPerson, setSelectedPerson] = useState(
     selectedTask.assignedUserName ?? ""
@@ -107,20 +80,7 @@ const TaskDetails = () => {
       assignee: assignee?.id,
     });
     closeModal();
-  };
-
-  const onSubmitComment: SubmitHandler<Inputs> = async () => {
-    try {
-      await addComments(dispatch, projectID ?? "", taskID ?? "", {
-        description: inputComment,
-      });
-  
-      setInputComment("");
-    } catch (error) {
-      console.error("Failed to add comment:", error);
-    }
-  };
-    
+  }; 
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -243,71 +203,9 @@ const TaskDetails = () => {
                         Cancel
                       </button>
                     </form>
-
-                    <form
-                      onSubmit={handleSubmit(onSubmitComment)}
-                      className="mt-5"
-                    >
-                      <h3 className="mb-3 mx-auto text-xl font-semibold">
-                        Comment Details
-                      </h3>
-
-                      <input
-                        type="text"
-                        placeholder="Write comment here"
-                        id="commentBox"
-                        required
-                        onChange={(e) => setInputComment(e.target.value)}
-                        value={inputComment}
-                        className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
-                      />
-                      <button
-                        type="submit"
-                        id="addCommentBtn"
-                        className="inline-flex justify-center px-4 py-2 mr-2 text-sm font-medium text-white bg-purple-600 border border-transparent rounded-md hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      >
-                        Add comment
-                      </button>
-                    </form>
-
-                    <div className="mt-2 space-y-4">
-                    {commentsState.isLoading ? (
-                        <p>Loading comments...</p>
-                      ) : commentsState.isError ? (
-                        <p>Error: {commentsState.errorMessage}</p>
-                      ) : (
-                        <div className="comment rounded-lg mt-2 space-y-4">
-                          {commentsState.data.slice().map((comment) => (
-                            <div
-                              key={comment.id}
-                              className="p-3 bg-gray-100 rounded-lg shadow-md comment"
-                            >
-                              <div className="text-gray-600">
-                                {comment.User && (
-                                  <>
-                                    <p className="m-2">
-                                      <strong>Name:</strong> {comment.User.name}
-                                    </p>
-                                    <p className="m-2">
-                                      <strong>Timestamp:</strong>{" "}
-                                      {comment.createdAt &&
-                                        comment.createdAt.toLocaleString()}
-                                    </p>
-                                  
-                                    <p className="m-2">
-                                      <strong>Comment:</strong> {comment.description}
-                                    </p>
-                                  </>
-                                )}
-                                
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
                   </div>
+                  <NewComment/>
+                  <CommentListItem/>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
