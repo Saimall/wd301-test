@@ -160,6 +160,7 @@ const TaskDetails = () => {
                         placeholder="Enter title"
                         id="title"
                         {...register("title", { required: true })}
+                        name="title"
                         className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <input
@@ -168,6 +169,7 @@ const TaskDetails = () => {
                         placeholder="Enter description"
                         id="description"
                         {...register("description", { required: true })}
+                        name="description"
                         className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <input
@@ -176,6 +178,7 @@ const TaskDetails = () => {
                         placeholder="Enter due date"
                         id="dueDate"
                         {...register("dueDate", { required: true })}
+                        name="dueDate"
                         className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <h3>
