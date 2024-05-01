@@ -83,6 +83,7 @@ const NewTask = () => {
                       <input
                         type="text"
                         required
+                        name="title"
                         placeholder="Enter title"
                         autoFocus
                         id="title"
@@ -95,6 +96,7 @@ const NewTask = () => {
                         required
                         placeholder="Enter description"
                         autoFocus
+                        name="description"
                         id="description"
                         // register the description field
                         {...register("description", { required: true })}
@@ -103,6 +105,7 @@ const NewTask = () => {
                       {errors && <span>This feild is required</span>}
                       <input
                         type="date"
+                        name="dueDate"
                         required
                         placeholder="Enter due date"
                         autoFocus
