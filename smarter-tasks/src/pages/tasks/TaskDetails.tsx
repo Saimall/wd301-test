@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 /* eslint-disable prefer-const */
 import { Dialog, Listbox, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -49,8 +50,9 @@ const TaskDetails = () => {
     selectedTask.assignedUserName ?? ""
   );
   const {
+    register,
     handleSubmit,
-    formState: { errors },
+    formState: {},
   } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,
@@ -116,31 +118,29 @@ const TaskDetails = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      {errors && <span>This field is required</span>}
-
                       <input
                         type="text"
                         required
                         placeholder="Enter title"
                         id="title"
-                        name="title"
-                        className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+                        {...register("title", { required: true })}
+                        className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <input
                         type="text"
                         required
                         placeholder="Enter description"
                         id="description"
-                        name="description"
-                        className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+                        {...register("description", { required: true })}
+                        className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <input
                         type="date"
                         required
                         placeholder="Enter due date"
                         id="dueDate"
-                        name="dueDate"
-                        className="w-full px-3 py-2 my-4 leading-tight text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+                        {...register("dueDate", { required: true })}
+                        className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
                       <h3>
                         <strong>Assignee</strong>
@@ -149,10 +149,10 @@ const TaskDetails = () => {
                         value={selectedPerson}
                         onChange={setSelectedPerson}
                       >
-                        <Listbox.Button className="w-full px-3 py-2 my-2 text-base text-left text-gray-700 border rounded-md">
+                        <Listbox.Button className="w-full border rounded-md py-2 px-3 my-2 text-gray-700 text-base text-left">
                           {selectedPerson}
                         </Listbox.Button>
-                        <Listbox.Options className="absolute py-1 mt-1 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                        <Listbox.Options className="absolute mt-1 max-h-60 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                           {memberState?.members.map((person) => (
                             <Listbox.Option
                               key={person.id}
@@ -177,7 +177,7 @@ const TaskDetails = () => {
                                   {selected ? (
                                     <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600">
                                       <CheckIcon
-                                        className="w-5 h-5"
+                                        className="h-5 w-5"
                                         aria-hidden="true"
                                       />
                                     </span>
@@ -190,21 +190,21 @@ const TaskDetails = () => {
                       </Listbox>
                       <button
                         type="submit"
-                        className="inline-flex justify-center px-4 py-2 mr-2 text-sm font-medium text-white bg-purple-600 border border-transparent rounded-md hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
                         Update
                       </button>
                       <button
                         type="submit"
                         onClick={closeModal}
-                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-purple-200 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
                         Cancel
                       </button>
                     </form>
                   </div>
-                  <NewComment/>
                   <CommentListItem/>
+                  <NewComment/>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
