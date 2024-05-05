@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import NewMember from "./NewMember";
 import MemberList from "./MemberList";
+import { Suspense } from "react";
 
 const Members = () => {
   const user = localStorage.getItem("userData")??'';
@@ -21,7 +22,9 @@ const Members = () => {
         </div>
         <NewMember />
       </div>
-      <MemberList />
+      <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
+        <MemberList />
+      </Suspense>
     </>
   )
 }

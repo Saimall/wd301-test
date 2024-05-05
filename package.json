@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "jest": "^29.7.0",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "vite-plugin-pwa": "^0.20.0"
   }
 }

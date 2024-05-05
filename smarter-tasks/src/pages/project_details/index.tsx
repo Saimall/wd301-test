@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { TasksProvider } from "../../context/task/context";
 import ProjectDetails from "./ProjectDetails";
 
@@ -9,7 +9,9 @@ const ProjectDetailsIndex: React.FC = () => {
   return (
     <TasksProvider>
       <CommentProvider>
-        <ProjectDetails />
+          <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
+            <ProjectDetails/>
+          </Suspense>
         <Outlet />
       </CommentProvider>
     </TasksProvider>

@@ -3,7 +3,7 @@ import { useMembersDispatch } from "../../context/members/context";
 import { fetchMembers } from "../../context/members/actions";
 import { Outlet } from "react-router-dom";
 
-const ProjectContainer = () => {
+const MemberContainer = () => {
   const memberDispatch = useMembersDispatch();
   useEffect(() => {
     fetchMembers(memberDispatch);
@@ -11,4 +11,4 @@ const ProjectContainer = () => {
   return <Outlet />;
 };
 
-export default ProjectContainer;
+export default MemberContainer;
