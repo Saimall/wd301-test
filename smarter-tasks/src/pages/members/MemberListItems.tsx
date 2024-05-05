@@ -19,9 +19,6 @@ export default function MemberListItems() {
     return <span>{errorMessage}</span>;
   }
 
-  if(members.length === 0){
-    throw Error("Error!!!");
-  }
 
   return (
     <>

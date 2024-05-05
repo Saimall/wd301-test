@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import ErrorBoundary from "../../components/ErrorBoundary";
 import NewMember from "./NewMember";
-import MemberList from "./MemberList";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
+const MemberList  =  React.lazy(() => import("./MemberList"));
 
 const Members = () => {
   const user = localStorage.getItem("userData")??'';
@@ -22,9 +23,11 @@ const Members = () => {
         </div>
         <NewMember />
       </div>
-      <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
-        <MemberList />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
+          <MemberList/>
+        </Suspense>
+      </ErrorBoundary>
     </>
   )
 }

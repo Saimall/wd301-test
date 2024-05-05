@@ -24,7 +24,7 @@ export default defineConfig({
             "type": "image/x-icon"
           },
           {
-            "src": "/logo.png",
+            "src": "/favicon-16x16.png",
             "type": "image/png",
             "sizes": "16x16"
           },
@@ -34,12 +34,12 @@ export default defineConfig({
             "sizes": "32x32"
           },
           {
-            "src": "/pwa-192x192.png",
+            "src": "/android-chrome-192x192.png",
             "type": "image/png",
             "sizes": "192x192"
           },
           {
-            "src": "/pwa-512x512.png",
+            "src": "/android-chrome-512x512.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "any maskable" // Icon format that ensures that your PWA icon looks great on all Android devices
@@ -49,5 +49,4 @@ export default defineConfig({
       },
     }),
   ],
-});
-
+})

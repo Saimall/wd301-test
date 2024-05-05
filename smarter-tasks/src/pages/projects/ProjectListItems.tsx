@@ -12,11 +12,6 @@ export default function ProjectListItems() {
     return <span>Loading...</span>;
   }
 
-  // This check is to validate ErrorBoundary Implementation. Remove this before milestone submission
-  if (projects.length === 0) {
-    throw Error("Error!!!");
-  }
-
   if (isError) {
     return <span>{errorMessage}</span>;
   }
